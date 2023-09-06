@@ -14,7 +14,7 @@ public class Employee {
 	private String cpf;
 	private Position position;
 	private BigDecimal salary;
-	private LocalDate lastReadjustmentDate;
+	private LocalDate lastAdjustmentDate;
 
 	public Employee(String name, String cpf, Position position, BigDecimal salary) {
 		this.name = name;
@@ -23,13 +23,13 @@ public class Employee {
 		this.salary = salary;
 	}
 
-	public void readjustSalary(BigDecimal increase) {
-		BigDecimal readjustPercentage = increase.divide(salary, RoundingMode.HALF_UP);
-		if (readjustPercentage.compareTo(new BigDecimal("0.4")) > 0) {
-			throw new ValidacaoException("The readjust can't be higher than 40% of the salary!");
+	public void salaryAdjustment(BigDecimal increase) {
+		BigDecimal adjustmentPercentage = increase.divide(salary, RoundingMode.HALF_UP);
+		if (adjustmentPercentage.compareTo(new BigDecimal("0.4")) > 0) {
+			throw new ValidacaoException("The adjustment can't be higher than 40% of the salary!");
 		}
 		this.salary = this.salary.add(increase);
-		this.lastReadjustmentDate = LocalDate.now();
+		this.lastadjustmentmentDate = LocalDate.now();
 	}
 
 	public String getName() {
@@ -64,11 +64,11 @@ public class Employee {
 		this.salary = salary;
 	}
 
-	public LocalDate getLastReadjustmentDate() {
-		return lastReadjustmentDate;
+	public LocalDate getLastAdjustmentDate() {
+		return lastAdjustmentDate;
 	}
 
-	public void setLastReadjustmentDate(LocalDate lastReadjustmentDate) {
-		this.lastReadjustmentDate = lastReadjustmentDate;
+	public void setLastAdjustmentDate(LocalDate lastAdjustmentDate) {
+		this.lastAdjustmentDate = lastAdjustmentDate;
 	}
 }
