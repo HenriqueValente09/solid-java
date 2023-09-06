@@ -29,7 +29,7 @@ public class Employee {
 			throw new ValidacaoException("The adjustment can't be higher than 40% of the salary!");
 		}
 		this.salary = this.salary.add(increase);
-		this.lastadjustmentmentDate = LocalDate.now();
+		this.lastAdjustmentDate = LocalDate.now();
 	}
 
 	public String getName() {
