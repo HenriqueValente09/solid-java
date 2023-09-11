@@ -2,10 +2,7 @@ package br.com.alura.rh.model;
 
 
 
-import br.com.alura.rh.ValidacaoException;
-
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDate;
 
 public class Employee {
@@ -66,5 +63,9 @@ public class Employee {
 
 	public void setLastAdjustmentDate(LocalDate lastAdjustmentDate) {
 		this.lastAdjustmentDate = lastAdjustmentDate;
+	}
+
+	public void promote(Position newPosition) {
+		this.position = newPosition;
 	}
 }
